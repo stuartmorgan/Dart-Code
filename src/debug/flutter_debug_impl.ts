@@ -33,7 +33,7 @@ export class FlutterDebugSession extends DartDebugSession {
 		const debug = !args.noDebug;
 		let appArgs = [];
 
-		let sourceFile = this.sourceFileForArgs(args);
+		const sourceFile = this.sourceFileForArgs(args);
 		if (sourceFile) {
 			appArgs.push("-t");
 			appArgs.push(sourceFile);

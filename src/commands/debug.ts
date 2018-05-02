@@ -115,8 +115,7 @@ export class DebugCommands {
 		}));
 		context.subscriptions.push(vs.commands.registerCommand("dart.getObservatoryAddress", () => {
 			return vs.window.showInputBox({
-				placeHolder: "Observatory address (URL or port, depending on your launch.json):",
-				value: "0"
+				prompt: "Observatory address (URL or port, depending on your launch.json).",
 			});
 		}));
 		context.subscriptions.push(vs.commands.registerCommand("flutter.openTimeline", () => {
