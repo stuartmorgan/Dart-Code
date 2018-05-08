@@ -6,7 +6,7 @@ import { fsPath } from "../../../src/utils";
 import { ensureOutputContains, ensureVariable, evaluate, getObservatoryUriForProcess, getTopFrameVariables, getVariables, spawnProcessPaused } from "../../debug_helpers";
 import { activate, closeAllOpenFiles, defer, eol, ext, helloWorldBrokenFile, helloWorldFolder, helloWorldGoodbyeFile, helloWorldMainFile, openFile, positionOf } from "../../helpers";
 
-describe.only("dart cli debugger", () => {
+describe("dart cli debugger", () => {
 	const dc = new DebugClient(process.execPath, path.join(ext.extensionPath, "out/src/debug/dart_debug_entry.js"), "dart");
 	dc.defaultTimeout = 30000;
 
@@ -296,7 +296,7 @@ describe.only("dart cli debugger", () => {
 
 	it.skip("writes exception to stderr");
 
-	describe.only("attaches", () => {
+	describe("attaches", () => {
 		it("to a paused Dart script and can unpause to run it to completion", async () => {
 			const process = spawnProcessPaused(await getLaunchConfig(helloWorldMainFile));
 			defer(() => process && !process.killed && process.kill());
