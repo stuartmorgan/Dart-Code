@@ -754,7 +754,11 @@ export class DartDebugSession extends DebugSession {
 				// dummy unconditional breakpoints.
 				// TODO: Ensure that VM breakpoint state is reconciled with debugger breakpoint state before
 				// handling thread state so that this doesn't happen, and remove this check.
-				const hasUnknownBreakpoints = breakpoints.includes(undefined);
+
+				// DT: This code doesn't compile for me (no includes?)
+				// const hasUnknownBreakpoints = breakpoints.includes(undefined);
+				const hasUnknownBreakpoints = breakpoints.indexOf(undefined) !== -1;
+
 				if (!hasUnknownBreakpoints) {
 					const hasUnconditionalBreakpoints = !!breakpoints.find((bp) => !bp.condition && !bp.logMessage);
 					const conditionalBreakpoints = breakpoints.filter((bp) => bp.condition);
